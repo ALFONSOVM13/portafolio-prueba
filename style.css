@@ -1,0 +1,465 @@
+@import url('https://fonts.cdnfonts.com/css/sf-ui-text-condensed-2');
+
+body {
+  margin: 0;
+  font-family: 'SF UI Text 2', sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.logo {
+  max-width: 100px;
+  margin: 0px 5px 5px 25px;
+}
+
+section {
+  height: 100vh;
+}
+
+.contenedor-principal {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.contenedor1 {
+  flex: 2.5;
+  /* Ocupa el 75% del espacio disponible */
+  background-color: #4831D4;
+  padding: 20px;
+  /* Añade algún espacio adicional si es necesario */
+  text-align: left;
+  /* Alinea el texto a la izquierda */
+}
+
+.contenedor1 h1 {
+  font-size: 70px;
+  color: #ccf381;
+  margin-left: 20%;
+}
+
+.contenedor1 p {
+  font-size: 35px;
+  color: #ffffff;
+  margin-left: 20%;
+}
+
+.caja1 {
+  width: 800px;
+}
+
+.contenedor2 {
+  flex: 1;
+  /* Ocupa el 25% del espacio disponible */
+  background-color: #ccf381;
+  position: relative;
+}
+
+.foto-perfil {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  /* Asegura que la imagen no exceda el ancho de su contenedor */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  body {
+    overflow: scroll;
+  }
+
+  .contenedor-principal {
+    flex-direction: column;
+    /* Cambia a un diseño de columna en pantallas más pequeñas */
+  }
+
+  .foto-perfil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60%;
+    /* Asegura que la imagen no exceda el ancho de su contenedor */
+  }
+
+  .caja1 {
+    width: 400px;
+  }
+
+  .contenedor1,
+  .contenedor2 {
+    flex: 1;
+  }
+
+  .contenedor1 h1 {
+    margin: 0px 0px 0px 30px;
+    font-size: 60px;
+    /* Ajusta el margen izquierdo en pantallas más pequeñas */
+  }
+
+  .contenedor1 p {
+    margin-left: 30px;
+    font-size: 25px;
+    /* Ajusta el margen izquierdo en pantallas más pequeñas */
+  }
+
+}
+
+.caja1 span {
+  font-size: 20px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    flex-direction: column;
+    /* Cambia a un diseño de columna en pantallas más pequeñas */
+  }
+
+  .contenedor1 {
+    flex: 0.5;
+    /* Ocupa el 100% del espacio disponible en pantallas más pequeñas */
+  }
+
+  .contenedor2 {
+    flex: 0.5;
+  }
+}
+
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  gap: 20px;
+  /* Permite que los elementos fluyan a la siguiente línea en dispositivos pequeños */
+}
+
+.feature-item {
+  box-sizing: border-box;
+  color: #ccf381;
+}
+
+@media (max-width: 767px) {
+  .caja1 span {
+    font-size: 15px;
+  }
+
+  .feature-list {
+    margin-left: 7%
+  }
+
+  ;
+
+  .feature-item {
+    flex: 100%;
+  }
+}
+
+section:nth-child(even) {
+  background-color: #F9F9F9;
+}
+
+/* Custom scroll points */
+.scroll-points {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scroll-points button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0.5px solid #ccf381;
+  background: #ccf381;
+  transform: rotate(45deg);
+  margin-bottom: 10px;
+  transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
+}
+
+@media only screen and (max-width: 767px) {
+  .scroll-points button {
+    display: none;
+  }
+}
+
+.scroll-points button.current {
+  opacity: 1;
+  transform: rotate(0);
+  border-radius: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+@keyframes square-in-bottom-left {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes square-our-bottom-left {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Aplicar animación de cierre al navbar cuando está activo y se cierra */
+#navbarMenu.active.closing {
+  animation: 1s cubic-bezier(.25, 1, .30, 1) square-out-top-right both;
+}
+
+/* Aplicar animación de apertura al navbar cuando está activo y se abre */
+#navbarMenu.active.open {
+  animation: 1s cubic-bezier(.25, 1, .30, 1) square-in-bottom-right both;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+  color:#4831D4;
+}
+
+.navbar a {
+  margin: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar a:active {
+  color: crimson;
+  /* Change the text color when the link is active */
+}
+
+.navbar {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  width: 100%;
+  padding: 10px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: right 0.8s ease-in-out;
+}
+
+.navbar a{
+  font-size: 20px;
+}
+.navbar-toggle {
+  display: block;
+  cursor: pointer;
+  margin-left: 10px;
+  top: 70px;
+  position: absolute;
+  z-index: 10000;
+}
+
+.navbar-toggle .bar1 {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #ccf381;
+  margin: 5px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-toggle .bar2 {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #ccf381;
+  margin: 5px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-toggle .bar3 {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: #ccf381;
+  margin: 5px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+
+.navbar-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  padding: 10px 0;
+  background-color: white;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.navbar-menu.active {
+  display: flex;
+  right: -10px;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 1;
+  transform: translateY(0);
+  width: 300px;
+  height: 400px;
+  z-index: 9999;
+  animation: 3s cubic-bezier(.25, 1, .30, 1) square-in-bottom-left both;
+  transition: opacity 0.7s ease-in-out, right 0.7s ease-in-out;
+  justify-content: space-between;
+}
+
+.navbar-menu.active li {
+  margin: 10px 0;
+}
+
+/* Animación de la hamburguesa */
+.navbar-toggle.active .bar1:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+
+}
+
+
+.navbar-toggle.active .bar2:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .bar3:nth-child(3) {
+  transform: translateY(-18px) rotate(-45deg);
+}
+
+/* Agregar transición al cerrar el menú */
+.navbar-menu.closing {
+  transition: opacity 0.9s ease-in-out, right 0.1s ease-in-out;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .navbar {
+    position: fixed;
+    top: 40px;
+    right: 0px;
+    width: 100%;
+    padding: 10px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Alinea el contenido a la derecha */
+  }
+
+  /* Estilos para el ícono de hamburguesa */
+  .navbar-toggle {
+    z-index: 10000;
+    margin-right: 10px;
+    /* Agregamos un margen derecho para separar el ícono del contenido */
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+    position: fixed;
+    top: -35px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Agregado para manejar el desbordamiento vertical si es necesario */
+  }
+
+  .navbar-menu.active a {
+    margin: 30px;
+    overflow-y: hidden;
+  }
+  body.navbar-open {
+    overflow: hidden;
+  }
+}
+
+
+
+
+
+
+.__contenedor1,
+.caja2 {
+  flex-basis: 48%; /* 48% en lugar de 50% para dejar espacio para el margen entre las cajas */
+}
+
+.__contenedor2 {
+  flex-basis: 48%; /* 48% en lugar de 50% para dejar espacio para el margen entre las cajas */
+  text-align: center;
+}
+
+.caja2 {
+  background-color: #fff;
+  width: 60%;
+  padding: 200px;
+  display: flex;
+  position: relative;
+}
+
+
+
+
+/* Estilo para las mini cajas */
+.minicaja1{
+  margin: 20px;
+  width: 35%;
+  position: absolute;
+  left: 10%; /* Ajusta según tu diseño */
+}
+.minicaja2 {
+  margin: 20px;
+  width: 35%;
+  top: 0;
+  left: 60%;
+  position: absolute;
+}
+
+
+/* Estilo para los títulos de las mini cajas */
+.minicaja1 h1,
+.minicaja2 h1 {
+  color: #4831D4;
+  font-size: 60px;
+}
+.minicaja1 p,
+.minicaja2 p {
+  color: #7967ec;
+  font-size: 25px;
+}
+
+
+
+
